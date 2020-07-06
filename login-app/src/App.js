@@ -7,16 +7,18 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Login from './Login';
+import CreateUser from './CreateUser';
+import AccountCreated from './AccountCreated'
 
 function App (){
   return (
     <div className="App">
       <header className="App-header">
         <Router>
-          <Login/>
-          <Route path = "/" component = {Login}/>
-          <Route path = "/createaccount" component = {CreateUser}/>
-        </Router>
+          <Route exact={true} path = "/" component = {Login}/>
+          <Route exact={true} path = "/createaccount" component = {CreateUser}/>
+          <Route exact={true} path = "/success" component = {AccountCreated}/>
+        </Router> 
       </header>
     </div>
   );
