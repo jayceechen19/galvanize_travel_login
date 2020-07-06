@@ -1,21 +1,26 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import './App.css';
+import Login from './Login';
 
-class App extends React.Component {
-  constructor(){
-    super(props)
-  }
-  render (){
-    return (
-      <div className="App">
-        <header className="App-header">
+function App (){
+  return (
+    <div className="App">
+      <header className="App-header">
+        <Router>
           <Login/>
-        </header>
-      </div>
-    );
-  }
-  }
+          <Route path = "/" component = {Login}/>
+          <Route path = "/createaccount" component = {CreateUser}/>
+        </Router>
+      </header>
+    </div>
+  );
+}
   
 
 export default App;
