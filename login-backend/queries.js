@@ -12,8 +12,7 @@ var registerUser = (req, res) =>{
     const body = req.body
 
     if (body.username && body.password){
-        var passwordHash = bcrypt.hash(body.password, 10)
-        pool.query('INSERT INTO users (username, password) VALUES ($1, $2)', [body.username, passwordHash], (error, results) =>{
+        pool.query(`INSERT INTO users (username, password) VALUES ($1, crypt($2, gen_salt('md5'))`, [body.username, body.password], (error, results) =>{
             if(error){
                 throw(error)
             }
@@ -25,9 +24,17 @@ var registerUser = (req, res) =>{
 var loginUser = (req, res) =>{
     const body = req.body
     if(body.username && body.password){
-        pool.query('SELECT password FROM users WHERE username = $1', [body.username], (error, results)=>{
-            var hash = results.rows
+        pool.query(`SELECT username FROM users WHERE username = $1 AND password = crypt($2, password)`, 
+        [body.username, body.password], (error, results)=>{
+            if(error){
+                res.send('Invalid credentials')
+            }else{
+                var result = results.rows[0].username
+                res.send(`${result} successfully logged in!`)
+            }
         })
+    }else{
+        res.send('Field missing')
     }
 }
-module.exports= {registerUser}
+module.exports= {registerUser, loginUser}

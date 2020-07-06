@@ -13,6 +13,6 @@ app.listen(port, () => {
 })
 
 //query to create a new user
-app.post('/register', (req, res) => queries.registerUser)
+app.post('/register', queries.registerUser)
 //query to validate login
-app.post('/login', (req, res) => queries.loginUser)
+app.get('/login', queries.loginUser)
