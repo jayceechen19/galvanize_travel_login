@@ -23,7 +23,7 @@ var registerUser = (req, res) =>{
 }
 
 var loginUser = (req, res) =>{
-    const body = req.body
+    const body = req.params
     if(body.username && body.password){
         pool.query(`SELECT username FROM users WHERE username = $1 AND password = crypt($2, password)`, 
         [body.username, body.password], (error, results)=>{
