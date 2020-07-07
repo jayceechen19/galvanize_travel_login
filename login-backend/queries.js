@@ -23,7 +23,7 @@ var registerUser = (req, res) =>{
 }
 
 var loginUser = (req, res) =>{
-    const body = req.params
+    const body = req.body
     if(body.username && body.password){
         pool.query(`SELECT username FROM users WHERE username = $1 AND password = crypt($2, password)`, 
         [body.username, body.password], (error, results)=>{
@@ -32,9 +32,9 @@ var loginUser = (req, res) =>{
             }else{
                 var result = results.rows[0].username
                 if (!result){
-                    res.send(`${body.username} does not exist`)
+                    res.json({reponse:`${body.username} does not exist`})
                 }else{
-                    res.send(`${result} successfully logged in!`)
+                    res.json({response:`${result} successfully logged in!`})
                 }
             }
         })

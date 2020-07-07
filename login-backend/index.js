@@ -1,10 +1,12 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const queries = require('./queries')
+const cors = require('cors')
 
 const app = express()
 const port = 3001
 
+app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
@@ -15,4 +17,4 @@ app.listen(port, () => {
 //query to create a new user
 app.post('/register', queries.registerUser)
 //query to validate login
-app.get('/login', queries.loginUser)
+app.post('/login', queries.loginUser)
