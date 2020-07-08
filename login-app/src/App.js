@@ -4,8 +4,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import '/Users/jessicachen/Visual Code/Galvanize/galvanize_travel_login/login-app/src/bootstrap.min.css';
-
+import './bootstrap.min.css';
 import Login from './Login';
 import CreateUser from './CreateUser';
 import AccountCreated from './AccountCreated'

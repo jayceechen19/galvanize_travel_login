@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  backend:
+    build: login-backend/
+    depends_on:
+      - 'database'
+    volumes:
+    #   - './login-backend:/src/app'
+      - '/src/app/node_modules'
+
+    ports: 
+      - '3002:3002'
+
+  app:
+    build: login-app/
+    depends_on:
+      - 'database'
+      - 'backend'
+    volumes:
+    #   - './login-backend:/web'
+      - '/web/node_modules'
+    ports:
+      - '3003:3003'
+    stdin_open: true
+
+  database:
+    build: postgresql/
+    restart: always
+    environment:
+      POSTGRES_USER: login
+      POSTGRES_PASSWORD: password
+      

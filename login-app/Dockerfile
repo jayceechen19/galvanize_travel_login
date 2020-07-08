@@ -9,11 +9,11 @@ COPY ./package.json /web/package.json
 
 # Installs all node packages
 RUN npm install
-RUN npm install react-router-dom
-RUN npm install react-bootstrap
 
 # Installs react-scripts (can skip if in package.json)
 RUN npm install react-scripts
+RUN npm install react-router-dom
+RUN npm install react-bootstrap
 
 # Copies the code to the web directory in the Docker container
 COPY . /web/
