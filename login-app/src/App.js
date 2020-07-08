@@ -4,12 +4,12 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import '/Users/jessicachen/Visual Code/Galvanize/galvanize_travel_login/login-app/src/bootstrap.min.css';
 
 import Login from './Login';
 import CreateUser from './CreateUser';
 import AccountCreated from './AccountCreated'
-import LoginSuccess from './LoginSuccess'
+import LoginResult from './LoginResult'
 
 class App extends React.Component{
   constructor(props){
@@ -38,9 +38,9 @@ class App extends React.Component{
             <Route exact={true} path = "/" component = {()=> 
               <Login state = {this.state} method = {this.changeServerResponse}/>}
             />
-            <Route exact={true} path = "/createaccount" component = {CreateUser}/>
-            <Route exact={true} path = "/success" component = {AccountCreated}/>
-            <Route exact={true} path = '/loginsuccess' component = {() => <LoginSuccess state = {this.state}/>}/>
+            <Route exact={true} path = "/createaccount" component = {() => <CreateUser state = {this.state} method = {this.changeServerResponse}/>}/>
+            <Route exact={true} path = "/success" component = {() => <AccountCreated state = {this.state}/>}/>
+            <Route exact={true} path = '/loginresult' component = {() => <LoginResult state = {this.state}/>}/>
           </Router> 
         </header>
       </div>

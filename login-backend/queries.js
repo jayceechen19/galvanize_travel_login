@@ -11,12 +11,13 @@ var registerUser = (req, res) =>{
     const body = req.body
 
     if (body.username && body.password){
-        pool.query(`INSERT INTO users (username, password) VALUES ($1, crypt($2, gen_salt('md5')))`, [body.username, body.password], (error, results) =>{
+        pool.query(`INSERT INTO users (username, password) VALUES ($1, crypt($2, gen_salt('md5')))`, 
+        [body.username, body.password], (error, results) =>{
             if(error){
-                throw error
+                res.json({response:`User ${body.username} exists`})
             }
             else{
-                res.send('User created!')
+                res.json({response:`User ${body.username} created!`})
             }
         })
     }
@@ -28,12 +29,12 @@ var loginUser = (req, res) =>{
         pool.query(`SELECT username FROM users WHERE username = $1 AND password = crypt($2, password)`, 
         [body.username, body.password], (error, results)=>{
             if(error){
-                throw error
+                res.send(error)
             }else{
-                var result = results.rows[0].username
-                if (!result){
-                    res.json({reponse:`${body.username} does not exist`})
+                if(results.rows[0] == undefined){
+                    res.json({response:`${body.username} does not exist`})
                 }else{
+                    var result = results.rows[0].username
                     res.json({response:`${result} successfully logged in!`})
                 }
             }

@@ -18,7 +18,7 @@ class Login extends React.Component{
         this.changeState = props.method
         this.enteredPassword = ''
         this.enteredUsername = ''
-        
+
         this.submitButton = this.submitButton.bind(this)
     }
 
@@ -39,6 +39,7 @@ class Login extends React.Component{
             body: JSON.stringify(data),
         })
         let result = await response.json()
+        console.log(`Login ${result.response}`)
         this.changeState(result.response)
     }
     
@@ -59,8 +60,8 @@ class Login extends React.Component{
                                 <Form.Control type="password" placeholder="Enter password" onChange ={event => this.enteredPassword = event.target.value}/>
                             </Form.Group>
                             
-                            <Link to="/loginsuccess" onClick={event => this.submitButton()}>
-                                <Button variant="primary" type="submit" >Login</Button>
+                            <Link to="/loginresult" onClick={event => this.submitButton()}>
+                                <Button variant="primary">Login</Button>
                             </Link>
                             <br/>
                             <br/>
