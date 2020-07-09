@@ -8,7 +8,8 @@ services:
     volumes:
     #   - './login-backend:/src/app'
       - '/src/app/node_modules'
-
+    environment:
+    - filePath="http://host.docker.internal:3002/"
     ports: 
       - '3002:3002'
 
@@ -20,8 +21,10 @@ services:
     volumes:
     #   - './login-backend:/web'
       - '/web/node_modules'
+    environment:
+    - filePath="http://host.docker.internal:3003/"
     ports:
-      - '3003:3003'
+    - '3003:3003'
     stdin_open: true
 
   database:
