@@ -55,7 +55,7 @@ class CreateUser extends React.Component{
 
         console.log(JSON.stringify(data))
      
-        const response = await fetch('http://localhost:3001/register', {
+        const response = await fetch('http://localhost:3002/register', {
             method: 'POST',
             mode: 'cors',
             headers:{

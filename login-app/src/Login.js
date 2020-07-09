@@ -29,7 +29,7 @@ class Login extends React.Component{
         }
         console.log(JSON.stringify(data))
      
-        const response = await fetch('http://localhost:3001/login', {
+        const response = await fetch('http://localhost:3002/login', {
             method: 'POST',
             mode: 'cors',
             headers:{
