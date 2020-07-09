@@ -47,7 +47,7 @@ CREATE TABLE public.users (
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: jessicachen
 --
 
-COPY public.users (username, password) FROM stdin;
+COPY users (username, password) FROM stdin;
 username	$1$rP64VIc/$noQOYXufRFSOg6lTWhkLM0
 jesschen2	$1$ucuILS6X$6nlamzkyVlyvYcgxgj5RE/
 jacob	$1$Jvp/feHZ$KAZiv0lUthlOq5YuK/kac.
