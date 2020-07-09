@@ -27,7 +27,6 @@ class Login extends React.Component{
             "username": this.enteredUsername,
             "password": this.enteredPassword
         }
-        console.log(JSON.stringify(data))
      
         const response = await fetch('http://localhost:3002/login', {
             method: 'POST',
@@ -38,7 +37,9 @@ class Login extends React.Component{
                 'Accept': 'application/json'},
             body: JSON.stringify(data),
         })
+
         let result = await response.json()
+        console.log(result)
         console.log(`Login ${result.response}`)
         this.changeState(result.response)
     }
