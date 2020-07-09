@@ -19,7 +19,7 @@ services:
       - 'database'
       - 'backend'
     volumes:
-      - './login-backend:/web'
+      - './login-app:/web'
       - '/web/node_modules'
     environment:
     - filePath="http://host.docker.internal:3003/"

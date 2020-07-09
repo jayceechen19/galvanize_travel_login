@@ -14,7 +14,7 @@ RUN npm install
 RUN npm install react-scripts
 RUN npm install react-router-dom
 RUN npm install react-bootstrap
-
+RUN npm install bootswatch
 # Copies the code to the web directory in the Docker container
 COPY . /web/
 
