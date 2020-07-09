@@ -39,8 +39,6 @@ class Login extends React.Component{
         })
 
         let result = await response.json()
-        console.log(result)
-        console.log(`Login ${result.response}`)
         this.changeState(result.response)
     }
     

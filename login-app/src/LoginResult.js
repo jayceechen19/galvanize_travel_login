@@ -18,7 +18,6 @@ class LoginResult extends React.Component{
     }
     
     render(){
-        console.log(this.state.serverResponse)
         if(this.state.serverResponse.includes('does not exist')){
             return(
                 <Container>

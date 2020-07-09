@@ -51,8 +51,6 @@ class CreateUser extends React.Component{
             "username": this.enteredUsername,
             "password": this.enteredPassword
         }
-
-        console.log(JSON.stringify(data))
      
         const response = await fetch('http://localhost:3002/register', {
             method: 'POST',
@@ -65,7 +63,6 @@ class CreateUser extends React.Component{
         })
 
         let result = await response.json()
-        console.log(result.response)
         this.changeState(result.response)
     }
 
