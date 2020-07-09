@@ -8,7 +8,6 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-//TODO: CREATE THE BACKEND POST FOR THE user submission
 class CreateUser extends React.Component{
     
     constructor(props){

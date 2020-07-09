@@ -1,10 +1,11 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootswatch/dist/minty/bootstrap.min.css";
 import {
   BrowserRouter as Router,
   Route,
   Link
 } from "react-router-dom";
-import "bootswatch/dist/minty/bootstrap.min.css";
 import Login from './Login';
 import CreateUser from './CreateUser';
 import AccountCreated from './AccountCreated'
