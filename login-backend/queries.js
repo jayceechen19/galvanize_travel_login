@@ -29,7 +29,7 @@ var loginUser = (req, res) =>{
         pool.query(`SELECT username FROM users WHERE username = $1 AND password = crypt($2, password)`, 
         [body.username, body.password], (error, results)=>{
             if(error){
-                res.send(error)
+                res.json({response:`${error}`})
             }else{
                 if(results.rows[0] == undefined){
                     res.json({response:`${body.username} does not exist`})
